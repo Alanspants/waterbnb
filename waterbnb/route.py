@@ -1,4 +1,3 @@
-
 from flask import render_template, url_for, app
 from werkzeug.utils import redirect
 from waterbnb.forms import RegisterForm
@@ -8,6 +7,7 @@ from waterbnb import models
 
 def index():
     return render_template('index.html')
+
 
 def register():
     form = RegisterForm()
@@ -19,8 +19,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('register.html')
-
+    return render_template('register.html', form=form)
 
 # if __name__ == "__main__":
 #     app.run(debug=True, port=5000)
