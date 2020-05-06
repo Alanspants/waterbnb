@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>{% block title %}Waterbnb{% endblock %}</title>
+    {% block styles %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    {% endblock %}
+    {% endblock %}
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Waterbnb</span>
+        <button type="button" class="btn btn-primary">Register</button>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>
