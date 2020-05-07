@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Register Form</h2>
+
+<div class="card" style="width: 600px; margin: 0 auto; margin-top: 150px; ">
+    <div class="card-body">
+        <h5 class="card-title">Register</h5>
 
 <form method="post">
     {{ form.csrf_token }}
@@ -18,7 +21,16 @@
     {{ form.password.label }}<br>
     {{ form.password(class='form-control') }}<br>
     {% if form.password.errors %}
-        {% for message in form.username.errors %}
+        {% for message in form.password.errors %}
+        <small class="error">{{ message }}</small><br>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div class="form-group">
+    {{ form.password2.label }}<br>
+    {{ form.password2(class='form-control') }}<br>
+    {% if form.password2.errors %}
+        {% for message in form.password2.errors %}
         <small class="error">{{ message }}</small><br>
         {% endfor %}
     {% endif %}
@@ -26,5 +38,7 @@
     {{ form.submit(class="btn btn-primary")}}<br>
 
 </form>
+    </div>
+</div>
 {% endblock %}
 

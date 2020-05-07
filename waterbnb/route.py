@@ -12,8 +12,8 @@ def index():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        username = form.username.body
-        password = form.password.body
+        username = form.username.data
+        password = form.password.data
         user = models.User(username=username)
         user.set_password(password)
         db.session.add(user)
