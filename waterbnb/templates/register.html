@@ -1,5 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="card" style="width: 600px; margin: 0 auto; margin-top: 150px; ">
+    <div class="card-body">
+        <h5 class="card-title">Register</h5>
+
+<form method="post">
+    {{ form.csrf_token }}
+    <div class="form-group">
+    {{ form.username.label }}<br>
+    {{ form.username(class='form-control')}}<br>
+    {% if form.username.errors %}
+        {% for message in form.username.errors %}
+        <small class="error">{{ message }}</small><br>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div class="form-group">
+    {{ form.password.label }}<br>
+    {{ form.password(class='form-control') }}<br>
+    {% if form.password.errors %}
+        {% for message in form.password.errors %}
+        <small class="error">{{ message }}</small><br>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div class="form-group">
+    {{ form.password2.label }}<br>
+    {{ form.password2(class='form-control') }}<br>
+    {% if form.password2.errors %}
+        {% for message in form.password2.errors %}
+        <small class="error">{{ message }}</small><br>
+        {% endfor %}
+    {% endif %}
+    </div>
+    {{ form.submit(class="btn btn-primary")}}<br>
+
+</form>
+    </div>
+</div>
 {% endblock %}
 
