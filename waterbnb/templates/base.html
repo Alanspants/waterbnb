@@ -11,14 +11,23 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light">
+    <div>
         <span class="navbar-brand mb-0 h1">Waterbnb</span>
-        <button type="button" class="btn btn-primary">Register</button>
-    </nav>
+    </div>
+    {% if current_user.is_anonymous %}
+    <div>
+        <a type="button" class="btn btn-primary" href="/login">Login</a>
+        <a type="button" class="btn btn-warning" href="/register">Register</a>
+    </div>
+    {% else %}
+    <a type="button" class="btn btn-primary" href="/logout">Logout</a>
+    {% endif %}
+</nav>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
 </body>
 </html>
